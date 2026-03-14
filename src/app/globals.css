@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ── Surfaces ── */
+  --color-bg: #FAFAF8;
+  --color-surface: #FFFFFF;
+  --color-surface-subtle: #F4F4F1;
+  --color-border: #E8E6E0;
+  --color-border-light: #D4D2CC;
+
+  /* ── Text ── */
+  --color-text-primary: #1A1915;
+  --color-text-secondary: #6B6860;
+  --color-text-tertiary: #9E9C96;
+
+  /* ── Gold accent (derived from logo gradient) ── */
+  --color-gold: #C9A84C;
+  --color-gold-light: #F0E4C0;
+  --color-gold-dark: #9A7A2E;
+  --color-gold-glow: rgba(201, 168, 76, 0.15);
+
+  /* ── Semantic (fixed across modes) ── */
+  --color-gain: #3D7A5E;
+  --color-gain-dim: rgba(61, 122, 94, 0.10);
+  --color-loss: #B04040;
+  --color-loss-dim: rgba(176, 64, 64, 0.10);
+  --color-warning: #B8860B;
+  --color-warning-dim: rgba(184, 134, 11, 0.10);
+  --color-info: #4A7FB5;
+  --color-info-dim: rgba(74, 127, 181, 0.10);
+
+  /* ── Typography ── */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ── Radius ── */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 3px rgba(26, 25, 21, 0.06), 0 1px 2px rgba(26, 25, 21, 0.04);
+  --shadow-md: 0 4px 12px rgba(26, 25, 21, 0.08), 0 2px 4px rgba(26, 25, 21, 0.04);
+  --shadow-lg: 0 12px 32px rgba(26, 25, 21, 0.10), 0 4px 8px rgba(26, 25, 21, 0.06);
+}
+
+.dark {
+  --color-bg: #0C0B09;
+  --color-surface: #171613;
+  --color-surface-subtle: #1E1D19;
+  --color-border: #2E2C26;
+  --color-border-light: #3A382F;
+
+  --color-text-primary: #E8E6E0;
+  --color-text-secondary: #9E9C96;
+  --color-text-tertiary: #5C5A54;
+
+  --color-gold: #D4B35C;
+  --color-gold-light: rgba(201, 168, 76, 0.15);
+  --color-gold-dark: #8A6A20;
+  --color-gold-glow: rgba(212, 179, 92, 0.12);
+
+  --shadow-sm: none;
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Remove number input spinners */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface-subtle);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-light);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-tertiary);
+  }
+
+  /* Focus ring */
+  *:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+}
